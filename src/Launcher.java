@@ -4,9 +4,14 @@ public class Launcher {
         System.out.println("Bonjour!");
         Scanner scanner = new Scanner( System.in );
         String a = scanner.nextLine();
-        if (a.equals("quit"))
+        while (!a.equals("quit")) {
+            System.out.print("Unknown command\n");
+            a = scanner.nextLine();
+        }
+        return;
+        /*if (a.equals("quit"))
             return;
         else
-            System.out.print( "Unknown command" );
+            System.out.print( "Unknown command" );*/
     }
 }
