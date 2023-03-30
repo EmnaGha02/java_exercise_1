@@ -15,6 +15,7 @@ public class Freq implements Command {
     public boolean run(Scanner sc)
     {
         try{
+             System.out.println("Passe moi le Path du fichier");
             Path paths = Paths.get(sc.nextLine());
             String initialString = java.nio.file.Files.readString(paths);
             String secondString = initialString.replaceAll("\\p{Punct}"," ");

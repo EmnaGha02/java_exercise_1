@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Launcher {
 
     public static void main (String[] args){
+         System.out.println("Bonjour");
         List<Command> ma_comm = new ArrayList<>();
         ma_comm.add(new Quit());
         ma_comm.add(new Fibo());
@@ -17,13 +18,18 @@ public class Launcher {
         boolean q = false;
         
         while(!q){
-            System.out.println("Bonjour, Passe moi une fonction");
+            System.out.println("Passe moi une fonction");
             Scanner sc = new Scanner(System.in);
             String input = sc.nextLine();
-            String[] input_split = input.split(" ");
-            String command = input_split[0];
+            Command command = null;
+            for (Command c : ma_comm) {
+                if (c.name().equals(input)) {
+                    command = c;
+                    break;
+                }
+            }
             boolean found = false;
-            Command co_fi = null;
+
             for (Command c : ma_comm) {
                 if (c.name().equals(input)) {
                     found = true;
@@ -37,4 +43,3 @@ public class Launcher {
     }
         
 }
-
